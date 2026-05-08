@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Maanas Bukkuri — VP of Product · Inflection Point</title>
+<meta name="description" content="Maanas Bukkuri — VP of Product. A product leader who ships, in the AI-augmented era. Operating as Inflection Point." />
+<meta name="theme-color" content="#1e2635" />
+
+<meta property="og:title" content="Maanas Bukkuri — VP of Product" />
+<meta property="og:description" content="A product leader who ships. Twelve years leading product, from early-stage to scale." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maanas.fyi" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  /* ---------- tokens ---------- */
+  :root, [data-theme="dark"] {
+    --bg-base:        #1e2635;
+    --bg-deep:        #162840;
+    --bg-deepest:     #12202e;
+    --bg-elevated:    #232c3d;
+    --surface-strong: rgba(80, 144, 200, 0.08);
+    --surface-border: rgba(80, 144, 200, 0.20);
+    --rule:           #2a3848;
+
+    --accent:         #5090c8;
+    --accent-bright:  #6aabdc;
+    --accent-soft:    #8ab8d4;
+
+    --text-primary:   #eef4ff;
+    --text-body:      #d0e0ec;
+    --text-secondary: #8aaec4;
+    --text-muted:     #4a6878;
+
+    --nav-bg:         rgba(30, 38, 53, 0.72);
+    --nav-bg-scrolled: rgba(18, 32, 46, 0.86);
+  }
+  [data-theme="light"] {
+    --bg-base:        #f4f7fb;
+    --bg-deep:        #e9eff6;
+    --bg-deepest:     #dde6f0;
+    --bg-elevated:    #ffffff;
+    --surface-strong: rgba(80, 144, 200, 0.08);
+    --surface-border: rgba(80, 144, 200, 0.28);
+    --rule:           #cdd8e4;
+
+    --accent:         #2e6fa8;
+    --accent-bright:  #1d5a93;
+    --accent-soft:    #4a86bd;
+
+    --text-primary:   #0e1a2c;
+    --text-body:      #1f2d40;
+    --text-secondary: #41566c;
+    --text-muted:     #6e8194;
+
+    --nav-bg:         rgba(244, 247, 251, 0.78);
+    --nav-bg-scrolled: rgba(233, 239, 246, 0.92);
+  }
+
+  /* ---------- base ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-weight: 400;
+    color: var(--text-body);
+    background: var(--bg-base);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  ::selection { background: var(--accent); color: var(--bg-deepest); }
+
+  a { color: var(--accent); text-decoration: none; transition: color 0.2s ease; }
+  a:hover { color: var(--accent-bright); }
+
+  h1, h2, h3, h4 { color: var(--text-primary); font-weight: 600; line-height: 1.2; margin: 0 0 0.5em; }
+  p { margin: 0 0 1em; }
+  em { font-style: italic; font-weight: 300; color: var(--accent-bright); }
+
+  .accent { color: var(--accent); }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+
+  /* ---------- nav ---------- */
+  nav.nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: var(--nav-bg);
+    backdrop-filter: saturate(160%) blur(14px);
+    -webkit-backdrop-filter: saturate(160%) blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+  }
+  nav.nav.scrolled {
+    background: var(--nav-bg-scrolled);
+    border-bottom-color: var(--rule);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 32px;
+    max-width: 1240px; margin: 0 auto;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; color: var(--text-primary); }
+  .brand:hover { color: var(--text-primary); }
+  .brand-mark { display: block; flex-shrink: 0; }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.05; }
+  .brand-name { font-weight: 600; font-size: 15px; letter-spacing: 0.01em; color: var(--text-primary); }
+  .brand-sub  { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-top: 2px; }
+
+  .nav-right { display: flex; align-items: center; gap: 28px; }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a {
+    font-size: 13px; font-weight: 500; color: var(--text-secondary); letter-spacing: 0.01em;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  .theme-toggle {
+    background: transparent; border: 1px solid var(--surface-border);
+    width: 34px; height: 34px; border-radius: 8px;
+    color: var(--text-secondary); cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+  }
+  .theme-toggle:hover { color: var(--accent); border-color: var(--accent); background: var(--surface-strong); }
+  .theme-toggle svg { width: 16px; height: 16px; }
+  [data-theme="dark"]  .theme-toggle .icon-sun  { display: block; }
+  [data-theme="dark"]  .theme-toggle .icon-moon { display: none; }
+  [data-theme="light"] .theme-toggle .icon-sun  { display: none; }
+  [data-theme="light"] .theme-toggle .icon-moon { display: block; }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative; overflow: hidden;
+    padding: 180px 0 120px;
+    background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-base) 80%);
+  }
+  .hero-inner { position: relative; z-index: 2; max-width: 880px; }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-secondary);
+    margin-bottom: 28px;
+    opacity: 0; transform: translateY(8px);
+    animation: fadeUp 0.7s 0.05s ease forwards;
+  }
+  .pulse-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #4ade80; box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  .hero-title {
+    font-size: clamp(44px, 7vw, 84px);
+    font-weight: 700; line-height: 1.04; letter-spacing: -0.025em;
+    color: var(--text-primary);
+    margin: 0 0 32px;
+    opacity: 0; transform: translateY(14px);
+    animation: fadeUp 0.8s 0.18s ease forwards;
+  }
+  .hero-title .ships {
+    font-style: italic; font-weight: 300; color: var(--accent-bright);
+  }
+  .hero-title .period { color: var(--accent); }
+
+  .hero-lede {
+    font-size: clamp(18px, 1.4vw, 22px);
+    line-height: 1.55; max-width: 720px; color: var(--text-body);
+    margin-bottom: 40px;
+    opacity: 0; transform: translateY(14px);
+    animation: fadeUp 0.8s 0.32s ease forwards;
+  }
+  .hero-lede strong { font-weight: 600; color: var(--text-primary); }
+
+  .hero-meta {
+    display: flex; flex-wrap: wrap; gap: 36px;
+    padding-top: 24px; border-top: 1px solid var(--rule);
+    opacity: 0; transform: translateY(14px);
+    animation: fadeUp 0.8s 0.46s ease forwards;
+  }
+  .hero-meta-item { display: flex; flex-direction: column; gap: 4px; min-width: 140px; }
+  .hero-meta-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted);
+  }
+  .hero-meta-value {
+    font-size: 14px; font-weight: 500; color: var(--text-body);
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+
+  /* decorative inflection curve bleeding off right edge */
+  .inflection-bg {
+    position: absolute; top: 50%; right: -160px; transform: translateY(-50%);
+    width: 720px; height: 720px;
+    pointer-events: none; opacity: 0.10; z-index: 1;
+  }
+  .inflection-bg svg { width: 100%; height: 100%; }
+
+  /* ---------- generic section ---------- */
+  section.block { padding: 110px 0; border-top: 1px solid var(--rule); }
+  .section-eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.20em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: clamp(32px, 4vw, 48px); font-weight: 700; letter-spacing: -0.02em;
+    color: var(--text-primary); margin: 0 0 56px; max-width: 780px;
+  }
+  .section-title em { font-style: italic; font-weight: 300; color: var(--accent-bright); }
+
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+  /* ---------- 01 approach ---------- */
+  .approach-grid {
+    display: grid; grid-template-columns: 320px 1fr; gap: 80px;
+    align-items: start;
+  }
+  .approach-callout {
+    position: sticky; top: 110px;
+    padding: 32px;
+    background: var(--surface-strong);
+    border: 1px solid var(--surface-border);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+  }
+  .approach-callout-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.20em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 18px;
+  }
+  .approach-callout-quote {
+    font-size: 17px; font-weight: 400; line-height: 1.55;
+    color: var(--text-primary); font-style: italic;
+  }
+  .approach-body p {
+    font-size: 17px; line-height: 1.75; color: var(--text-body);
+    margin: 0 0 1.4em;
+  }
+  .approach-body p:last-child { margin-bottom: 0; }
+  .approach-body em { font-style: italic; font-weight: 300; color: var(--accent-bright); }
+
+  /* ---------- 02 work cards ---------- */
+  .work-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  }
+  .work-card {
+    position: relative;
+    padding: 36px 32px 32px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .work-card:hover { transform: translateY(-3px); border-color: var(--surface-border); box-shadow: 0 18px 40px -24px rgba(0,0,0,0.45); }
+  .work-card-status {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 18px;
+  }
+  .work-card-status .dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+    animation: pulse 2.6s ease-in-out infinite;
+  }
+  .work-card h3 { font-size: 22px; margin: 0 0 14px; color: var(--text-primary); }
+  .work-card p { font-size: 15px; line-height: 1.65; color: var(--text-body); margin: 0 0 22px; }
+  .work-card-tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    padding-top: 18px; border-top: 1px solid var(--rule);
+  }
+  .work-card-tag {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.10em; color: var(--text-muted);
+    padding: 4px 10px; border: 1px solid var(--rule); border-radius: 999px;
+  }
+
+  /* ---------- 03 history ---------- */
+  .track-list { display: flex; flex-direction: column; gap: 0; }
+  .track-row {
+    display: grid; grid-template-columns: 160px 1fr 1.4fr; gap: 32px;
+    padding: 28px 0; border-top: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .track-row:last-child { border-bottom: 1px solid var(--rule); }
+  .track-row:hover .track-role { color: var(--accent); }
+  .track-period {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.10em; color: var(--text-muted);
+  }
+  .track-role {
+    font-size: 18px; font-weight: 600; color: var(--text-primary);
+    transition: color 0.2s ease;
+  }
+  .track-role-sub {
+    display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    font-weight: 400; letter-spacing: 0.05em; color: var(--text-muted);
+    margin-top: 4px; text-transform: none;
+  }
+  .track-detail { font-size: 15px; line-height: 1.65; color: var(--text-secondary); }
+
+  /* ---------- 04 research ---------- */
+  .thesis-frame {
+    padding: 56px 56px 48px;
+    background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-deep) 100%);
+    border: 1px solid var(--surface-border);
+    border-radius: 8px;
+    position: relative;
+  }
+  .thesis-question {
+    font-size: clamp(22px, 2.4vw, 32px);
+    font-weight: 300; font-style: italic; line-height: 1.4;
+    color: var(--text-primary);
+    margin: 0 0 48px;
+    max-width: 900px;
+  }
+  .thesis-question .key {
+    font-style: normal; font-weight: 600; color: var(--accent);
+  }
+  .thesis-meta {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+    padding-top: 32px; border-top: 1px solid var(--rule);
+  }
+  .thesis-meta-item { display: flex; flex-direction: column; gap: 6px; }
+  .thesis-meta-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted);
+  }
+  .thesis-meta-value { font-size: 15px; font-weight: 500; color: var(--text-body); }
+
+  /* ---------- contact ---------- */
+  .contact-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    max-width: 720px;
+  }
+  .contact-link {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 26px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-weight: 500; font-size: 15px;
+    transition: border-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  .contact-link .arrow {
+    font-family: 'JetBrains Mono', monospace; color: var(--text-muted);
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  .contact-link:hover .arrow { color: var(--accent); transform: translate(3px, -3px); }
+
+  /* ---------- footer ---------- */
+  footer.footer {
+    padding: 48px 0 56px;
+    border-top: 1px solid var(--rule);
+    color: var(--text-muted);
+  }
+  .footer-inner {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    align-items: center; gap: 24px;
+  }
+  .footer-left {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted);
+  }
+  .footer-mid {
+    text-align: center; font-size: 12px; color: var(--text-muted);
+  }
+  .footer-right {
+    display: flex; justify-content: flex-end; align-items: center;
+    color: var(--text-muted);
+  }
+
+  /* ---------- animations ---------- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55); }
+    50%      { box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); }
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 880px) {
+    .container { padding: 0 22px; }
+    .nav-inner { padding: 12px 22px; }
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 12px; }
+    .brand-sub { display: none; }
+
+    .hero { padding: 140px 0 80px; }
+    .hero-meta { gap: 22px; }
+    .inflection-bg { display: none; }
+
+    section.block { padding: 80px 0; }
+    .section-title { margin-bottom: 40px; }
+
+    .approach-grid { grid-template-columns: 1fr; gap: 32px; }
+    .approach-callout { position: static; }
+
+    .work-grid { grid-template-columns: 1fr; }
+
+    .track-row { grid-template-columns: 1fr; gap: 8px; padding: 22px 0; }
+
+    .thesis-frame { padding: 36px 28px 32px; }
+    .thesis-meta { grid-template-columns: 1fr; gap: 20px; }
+
+    .contact-grid { grid-template-columns: 1fr; }
+
+    .footer-inner { grid-template-columns: 1fr; text-align: center; gap: 18px; }
+    .footer-right { justify-content: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand" aria-label="Maanas Bukkuri — home">
+      <svg class="brand-mark" width="32" height="26" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M2 28 L2 5 L19 16 L36 5 L36 28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.20"/>
+        <path d="M2 25 C7 25 10 12 19 16 C28 20 31 4 36 4" stroke="#5090c8" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        <circle cx="19" cy="16" r="5" fill="rgba(80,144,200,0.08)"/>
+        <circle cx="19" cy="16" r="3.2" fill="rgba(80,144,200,0.18)"/>
+        <circle cx="19" cy="16" r="1.9" fill="#5090c8"/>
+      </svg>
+      <span class="brand-text">
+        <span class="brand-name">Maanas Bukkuri</span>
+        <span class="brand-sub">Inflection Point</span>
+      </span>
+    </a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#approach">Approach</a>
+        <a href="#work">Work</a>
+        <a href="#history">History</a>
+        <a href="#research">Research</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" type="button">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="container hero-inner">
+    <div class="hero-eyebrow">
+      <span class="pulse-dot" aria-hidden="true"></span>
+      VP of Product · Los Angeles · Open to Roles
+    </div>
+    <h1 class="hero-title">
+      A product leader<br/>
+      who <span class="ships">ships</span><span class="period">.</span>
+    </h1>
+    <p class="hero-lede">
+      Twelve years leading product, from early-stage to scale. I lead by <strong>staying close to the work</strong> — writing specs, sketching flows, sometimes shipping code. That habit became more useful, not less, once AI started reshaping how products actually get built.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Status</span>
+        <span class="hero-meta-value"><span class="pulse-dot" aria-hidden="true"></span>Open to VP Product roles</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Based in</span>
+        <span class="hero-meta-value">Los Angeles · Remote OK</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Currently building</span>
+        <span class="hero-meta-value">Runway · DBA Research</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- decorative inflection curve, bleeds off right edge -->
+  <div class="inflection-bg" aria-hidden="true">
+    <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+      <path d="M40 700 C 200 700, 280 380, 420 400 C 560 420, 640 100, 780 100"
+            stroke="#5090c8" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <circle cx="420" cy="400" r="80" fill="rgba(80,144,200,0.06)"/>
+      <circle cx="420" cy="400" r="40" fill="rgba(80,144,200,0.10)"/>
+      <circle cx="420" cy="400" r="14" fill="#5090c8"/>
+    </svg>
+  </div>
+</header>
+
+<!-- ============ 01 APPROACH ============ -->
+<section class="block" id="approach">
+  <div class="container">
+    <div class="section-eyebrow reveal">// 01 — Approach</div>
+    <h2 class="section-title reveal">Close to <em>the work</em>.</h2>
+
+    <div class="approach-grid">
+      <aside class="approach-callout reveal">
+        <div class="approach-callout-label">Operating Principle</div>
+        <p class="approach-callout-quote">
+          “The best decisions I’ve made as a product leader came from staying close to the work, not from getting further away from it.”
+        </p>
+      </aside>
+
+      <div class="approach-body reveal">
+        <p>The shape of product leadership has changed a lot in twenty years — more strategy meetings, more dashboards, more layers between the executive and what actually ships. There are good reasons for most of it. But for me, the work gets sharper when I stay close to it.</p>
+        <p>I write specs. I sketch flows. I prototype features. I’ll ship code when the situation calls for it. Not because I don’t trust my team — <em>because that’s how I stay calibrated to what they need from me</em>, and how I notice the small things that turn into big things later.</p>
+        <p>The AI shift is making this matter in a new way. The teams figuring out where AI actually fits aren’t doing it from reports — they’re doing it by using the tools, hitting the limits, and forming opinions from the inside. When the executive shares that experience, decisions get sharper. When they don’t, strategy starts drifting from how the work is actually changing.</p>
+        <p>That’s the model I bring: a player-coach who builds and leads. Senior enough to set direction. Hands-on enough to keep that direction grounded.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 WORK ============ -->
+<section class="block" id="work">
+  <div class="container">
+    <div class="section-eyebrow reveal">// 02 — Selected Work</div>
+    <h2 class="section-title reveal">What I’m <em>building</em>.</h2>
+
+    <div class="work-grid">
+      <article class="work-card reveal">
+        <div class="work-card-status"><span class="dot"></span>In Development</div>
+        <h3>Runway</h3>
+        <p>A menu-bar app that tracks Claude usage in real time, surfacing burn rate against rate limits before you hit them. Built to scratch my own itch — then built properly because the itch wasn’t just mine.</p>
+        <div class="work-card-tags">
+          <span class="work-card-tag">Swift</span>
+          <span class="work-card-tag">macOS</span>
+          <span class="work-card-tag">Anthropic API</span>
+        </div>
+      </article>
+
+      <article class="work-card reveal">
+        <div class="work-card-status"><span class="dot"></span>Active Research</div>
+        <h3>AI-Ready Organizations</h3>
+        <p>DBA thesis exploring what actually makes an organization ready to work with AI — not at the tools layer, but at the level of how decisions get made and who has authority to change them. The question I’m trying to answer for myself before I have to answer it for anyone else.</p>
+        <div class="work-card-tags">
+          <span class="work-card-tag">Doctoral Research</span>
+          <span class="work-card-tag">Org Design</span>
+          <span class="work-card-tag">AI Strategy</span>
+        </div>
+      </article>
+
+      <article class="work-card reveal">
+        <div class="work-card-status"><span class="dot"></span>Coming Soon</div>
+        <h3>Field Notes</h3>
+        <p>Writing on what changes for product leaders when the work itself is changing — and what doesn’t. Mostly notes from the thesis, in shorter form.</p>
+        <div class="work-card-tags">
+          <span class="work-card-tag">Essays</span>
+          <span class="work-card-tag">2026</span>
+        </div>
+      </article>
+
+      <article class="work-card reveal">
+        <div class="work-card-status"><span class="dot"></span>Coming Soon</div>
+        <h3>More to ship</h3>
+        <p>Slots reserved for what comes next. A few small products in early stages. The pattern matters more than any single one — consistent shipping is the only portfolio that compounds.</p>
+        <div class="work-card-tags">
+          <span class="work-card-tag">2026</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 HISTORY ============ -->
+<section class="block" id="history">
+  <div class="container">
+    <div class="section-eyebrow reveal">// 03 — History</div>
+    <h2 class="section-title reveal">Twelve years <em>in product</em>.</h2>
+
+    <div class="track-list">
+      <div class="track-row reveal">
+        <div class="track-period">2022 — 2026</div>
+        <div>
+          <div class="track-role">VP of Product</div>
+          <span class="track-role-sub">Entertainment Partners</span>
+        </div>
+        <div class="track-detail">Led product strategy and execution across enterprise platforms serving the global entertainment industry. Recent work included AI-powered features and platform parity initiatives.</div>
+      </div>
+
+      <div class="track-row reveal">
+        <div class="track-period">Earlier</div>
+        <div>
+          <div class="track-role">Product Leadership Roles</div>
+          <span class="track-role-sub">Multiple companies, early-stage to scale</span>
+        </div>
+        <div class="track-detail">A decade of building and shipping product across stages and domains. Detailed history on LinkedIn.</div>
+      </div>
+
+      <div class="track-row reveal">
+        <div class="track-period">2024 — Present</div>
+        <div>
+          <div class="track-role">Doctor of Business Administration</div>
+          <span class="track-role-sub">California Southern University · 4.0 GPA · In Progress</span>
+        </div>
+        <div class="track-detail">Concentrating on AI-ready organizational design. Thesis-track. Target completion: 2028.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 RESEARCH ============ -->
+<section class="block" id="research">
+  <div class="container">
+    <div class="section-eyebrow reveal">// 04 — Research Frame</div>
+    <h2 class="section-title reveal">The question I’m <em>sitting with</em>.</h2>
+
+    <div class="thesis-frame reveal">
+      <p class="thesis-question">
+        How do organizations <span class="key">actually become AI-ready</span> — not at the tools layer, but at the level of operating model, decision rights, and how executives relate to the work itself?
+      </p>
+      <div class="thesis-meta">
+        <div class="thesis-meta-item">
+          <span class="thesis-meta-label">Domain</span>
+          <span class="thesis-meta-value">Organizational Design</span>
+        </div>
+        <div class="thesis-meta-item">
+          <span class="thesis-meta-label">Method</span>
+          <span class="thesis-meta-value">Mixed Methods · Practitioner</span>
+        </div>
+        <div class="thesis-meta-item">
+          <span class="thesis-meta-label">Output</span>
+          <span class="thesis-meta-value">Thesis · Essays · Frameworks</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="block" id="contact">
+  <div class="container">
+    <div class="section-eyebrow reveal">// Get in touch</div>
+    <h2 class="section-title reveal">Let’s <em>talk</em>.</h2>
+
+    <div class="contact-grid">
+      <a class="contact-link reveal" href="mailto:msbukkuri@gmail.com">
+        <span>Email</span><span class="arrow">↗</span>
+      </a>
+      <a class="contact-link reveal" href="https://www.linkedin.com/in/maanasb" target="_blank" rel="noopener">
+        <span>LinkedIn</span><span class="arrow">↗</span>
+      </a>
+      <a class="contact-link reveal" href="https://github.com/msbukkuri" target="_blank" rel="noopener">
+        <span>GitHub</span><span class="arrow">↗</span>
+      </a>
+      <a class="contact-link reveal" href="/resume.pdf">
+        <span>Resume (PDF)</span><span class="arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-left">Maanas Bukkuri · Inflection Point</div>
+    <div class="footer-mid">© 2026 · Built by hand</div>
+    <div class="footer-right" aria-hidden="true">
+      <svg width="28" height="22" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 28 L2 5 L19 16 L36 5 L36 28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.15"/>
+        <path d="M2 25 C7 25 10 12 19 16 C28 20 31 4 36 4" stroke="#5090c8" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.7"/>
+        <circle cx="19" cy="16" r="3" fill="rgba(80,144,200,0.18)"/>
+        <circle cx="19" cy="16" r="1.6" fill="#5090c8"/>
+      </svg>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---------- theme ----------
+  (function () {
+    const root = document.documentElement;
+    const stored = localStorage.getItem('theme');
+    if (stored === 'light' || stored === 'dark') {
+      root.setAttribute('data-theme', stored);
+    } else {
+      root.setAttribute('data-theme', 'dark'); // default per spec
+    }
+    const btn = document.getElementById('themeToggle');
+    btn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  })();
+
+  // ---------- nav scrolled ----------
+  (function () {
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+      if (window.scrollY > 20) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+
+  // ---------- reveal on scroll ----------
+  (function () {
+    const els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(el => io.observe(el));
+  })();
+</script>
+
+</body>
+</html>
