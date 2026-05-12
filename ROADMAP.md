@@ -68,6 +68,21 @@ If any of those triggers fire — open an issue and let it become real work. Unt
 
 ---
 
+## What this project deliberately isn't
+
+Half of operating discipline is what you refuse to build. The following directions are explicitly off-list — not "we'll consider it," but *no, not on this project*:
+
+- **A custom CMS.** Markdown files in the repo are the CMS. The day that breaks is the day to consider an alternative; until then, no.
+- **A framework migration (Next.js, Astro, SvelteKit, etc.).** The site is static HTML. It stays static unless the content model fundamentally changes — and "fundamentally" means more than "I read a blog post about Next.js."
+- **A/B testing infrastructure.** Premature for this level of traffic. A site that doesn't have 10k monthly visitors doesn't need experimentation tooling.
+- **Multi-language support.** Not relevant to the target audience.
+- **A native mobile app.** Mobile-responsive web is sufficient.
+- **Forum or community features.** This isn't a community platform. The repo is the only "community" surface, and it's open by design.
+
+If any of these surface again in conversation, the default response is: *not now, possibly never, capture the conversation, move on.*
+
+---
+
 ## Why this is here
 
 The site argues "VP Product who builds, in the AI-augmented era." A public roadmap is part of the argument. Anyone landing on this repo sees a project being run — versioned releases, scoped milestones, open issues, the principles driving the choices — instead of a static one-shot deliverable.
