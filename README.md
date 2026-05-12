@@ -29,6 +29,10 @@ Auto-deploys via Vercel on every push to `main`.
 /services            Coaching, fractional, advisory offerings (planned)
 ```
 
+## Roadmap
+
+See [ROADMAP.md](./ROADMAP.md) for the project direction, milestones, and architecture principles. The shipping order lives in [open milestones](https://github.com/msbukkuri/maanas.fyi/milestones); active backlog lives in [open issues](https://github.com/msbukkuri/maanas.fyi/issues).
+
 ## Brand
 
 Inflection Point — dark navy base, ice blue accents.
